@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 加载对话框(透明) -->
+    <style name="dialog_transparent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="ToastAnimation" parent="@android:style/Animation.Toast">
+        <!--<item name="android:windowEnterAnimation">@anim/toast_enter</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/toast_exit</item>-->
+    </style>
+
+</resources>
