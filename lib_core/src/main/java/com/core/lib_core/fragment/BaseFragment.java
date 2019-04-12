@@ -29,5 +29,4 @@ public abstract class BaseFragment extends FrameBaseFragment {
     public void showToast(String content) {
         Alert.toast(content);
     }
-
 }
