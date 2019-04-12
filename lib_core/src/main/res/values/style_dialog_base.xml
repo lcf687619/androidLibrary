@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 各个项目根据情况进行覆盖(粘贴该文件,定义/修改相同的属性即可) -->
+<!--suppress ALL -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- dialog对话框主题 -->
+    <!--suppress AndroidDomInspection -->
+    <style name="base_dialog_theme" parent="Theme.AppCompat.Dialog">
+        <!-- 是否支持window透明度 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- window背景颜色 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 屏幕内容区域以外的背景是否可以设置灰度值(与backgroundDimAmount搭配使用) -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 灰度值 -->
+        <item name="android:backgroundDimAmount">0.6</item>
+        <!-- NoTitle保证居中显示 -->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="base_dialog_theme1" parent="@android:style/Theme.Dialog">
+        <!-- 是否支持window透明度 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- window背景颜色 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 屏幕内容区域以外的背景是否可以设置灰度值(与backgroundDimAmount搭配使用) -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 灰度值 -->
+        <item name="android:backgroundDimAmount">0.8</item>
+        <!-- NoTitle保证居中显示 -->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <!-- 对话框外层layout样式 -->
+    <style name="base_dialog_layout_style">
+        <!-- 注意需要手动设定padding (否则系统会默认预留空白) -->
+        <item name="android:padding">0dip</item>
+    </style>
+    <!-- 对话框的分割线样式 -->
+    <style name="base_dialog_line_style">
+        <item name="android:background">#ccc</item>
+    </style>
+</resources>

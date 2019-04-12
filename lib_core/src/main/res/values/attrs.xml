@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularProgress">
+        <attr name="bor_width" format="dimension" />
+        <attr name="circle_color" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="LazyViewPager">
+        <attr name="init_lazy_item_offset" format="float" />
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="border_overlay" format="boolean" />
+    </declare-styleable>
+    <!-- 自定义文本显示框 的属性-->
+    <declare-styleable name="SFBaseTextView">
+        <attr name="font_name" format="string"></attr>
+    </declare-styleable>
+</resources>

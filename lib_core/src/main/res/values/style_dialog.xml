@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 各个项目根据情况进行覆盖(粘贴该文件,定义/修改相同的属性即可) -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- dialog对话框主题 -->
+    <style name="app_dialog_theme" parent="@style/base_dialog_theme"></style>
+    <style name="app_dialog_theme1" parent="@style/base_dialog_theme1"></style>
+    <!-- 对话框外层layout样式 -->
+    <style name="app_dialog_layout_style" parent="@style/base_dialog_layout_style"></style>
+</resources>

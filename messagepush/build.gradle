@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation project(':lib_core')
+    //信鸽3.2.4 beta版本
+    api 'com.tencent.xinge:xinge:3.2.4-beta'
+    //wup包
+    api 'com.tencent.wup:wup:1.0.0.E-release'
+    //mid包
+    api 'com.tencent.mid:mid:4.0.6-release'
+    //华为推送
+    //配置华为消息receiver。 注：如果使用xgmz:3.2.4-beta版本则不需要此步骤，只需要添加依赖即可
+    //华为3.2.4 beta版本
+    api 'com.tencent.xinge:xghw:3.2.4-beta'
+    //魅族推送
+    // 魅族3.2.4-beta版
+    api 'com.tencent.xinge:xgmz:3.2.4-beta'
+    //小米推送
+    //小米3.2.4-beta版
+    api 'com.tencent.xinge:mipush:3.2.4-beta'
+}

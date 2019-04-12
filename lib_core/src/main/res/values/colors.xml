@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="transparent">#00000000</color>
+	<!-- app状态栏背景颜色 -->
+	<color name="app_status">#40000000</color>
+
+	<color name="blue">#33c8ca</color>
+	<color name="white">#ffffff</color>
+</resources>
