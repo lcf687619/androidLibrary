@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.core.lib_core.R;
@@ -20,6 +21,7 @@ import com.core.lib_core.title.AppTitle;
 import com.core.lib_core.title.TitleMgr;
 import com.core.lib_core.utils.CameraUtils;
 import com.core.lib_core.widgets.AppDialog;
+import com.core.lib_core.widgets.viewhelper.VaryViewHelper;
 import com.finalteam.galleryfinal.utils.GetImagePath;
 
 import java.io.File;
@@ -34,6 +36,7 @@ public abstract class BaseActivity extends FrameBaseActivity {
     private AppTitle appTitle;
     private View waitingView;
     protected CameraUtils cameraUtils = null;
+    public VaryViewHelper mVaryViewHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,40 @@ public abstract class BaseActivity extends FrameBaseActivity {
     protected void findViewById() {
         appTitle = new TitleMgr(getContext());
         appTitle.initTitle();
+        View contentView = findViewById(R.id.core_content_layout);
+        if (contentView != null) {
+            initVaryView();
+        }
+    }
+
+    protected void initVaryView() {
+        if (loadingview() <= 0 || emptyview() <= 0 || errorview() <= 0) {
+            return;
+        }
+        mVaryViewHelper = new VaryViewHelper.Builder()
+                .setDataView(findViewById(R.id.core_content_layout))//放数据的父布局，逻辑处理在该Activity中处理
+                .setLoadingView(LayoutInflater.from(this).inflate(loadingview(), null))//加载页，无实际逻辑处理
+                .setEmptyView(LayoutInflater.from(this).inflate(emptyview(), null))//空页面，无实际逻辑处理
+                .setErrorView(LayoutInflater.from(this).inflate(errorview(), null))//错误页面
+                .setRefreshListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        reloadData();
+                    }
+                })//错误页点击刷新实现
+                .build();
+    }
+
+    public abstract int loadingview();
+
+    public abstract int emptyview();
+
+    public abstract int errorview();
+
+    public void reloadData() {
+        if (mVaryViewHelper != null) {
+            mVaryViewHelper.showLoadingView();
+        }
     }
 
     public AppTitle getAppTitle() {
@@ -257,6 +294,12 @@ public abstract class BaseActivity extends FrameBaseActivity {
     public void doCopyToPaste(String content) {
         ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         clipboardManager.setText(content);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mVaryViewHelper = null;
+        super.onDestroy();
     }
 
     protected void handleTokenInvalid() {
